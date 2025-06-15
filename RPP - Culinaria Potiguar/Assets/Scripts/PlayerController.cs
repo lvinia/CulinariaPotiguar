@@ -24,11 +24,11 @@ public class PlayerController : MonoBehaviour
         // Pular se estiver no chão e apertar espaço
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
 
         // Corre sempre para a direita
-        rb.velocity = new Vector2(speed, rb.velocity.y);
+        rb.linearVelocity = new Vector2(speed, rb.linearVelocity.y);
     }
 
     // Para visualizar o groundCheck no editor
