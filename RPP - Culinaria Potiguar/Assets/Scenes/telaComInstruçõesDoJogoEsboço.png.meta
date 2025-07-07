@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 02582c61bf28c1946a911e1242b54945
+guid: 6933ae0b9b39c3841b44e406f5c5485c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6845921292713551975
-    second: gatofundo_0
+      213: -8311749028472288460
+    second: "telaComInstru\xE7\xF5esDoJogoEsbo\xE7o_0"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: gatofundo_0
+      name: "telaComInstru\xE7\xF5esDoJogoEsbo\xE7o_0"
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 910
-        height: 607
+        width: 1152
+        height: 648
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 99796830bd66ef0a0800000000000000
-      internalID: -6845921292713551975
+      spriteID: 43b06bfcb4cb6ac80800000000000000
+      internalID: -8311749028472288460
       vertices: []
       indices: 
       edges: []
