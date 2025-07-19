@@ -409,8 +409,8 @@ Canvas:
   m_GameObject: {fileID: 888405931}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -605,7 +605,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: botao de play
+  m_Text: Jogar
 --- !u!222 &1278377642
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -650,7 +650,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 197, y: -101}
+  m_AnchoredPosition: {x: 198, y: -86}
   m_SizeDelta: {x: 302.2786, y: 64.9182}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1440667210
@@ -781,8 +781,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -169, y: 91}
-  m_SizeDelta: {x: 528.6373, y: 193.716}
+  m_AnchoredPosition: {x: -146.53323, y: 107.240265}
+  m_SizeDelta: {x: 455.5709, y: 151.2354}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1551602098
 MonoBehaviour:
@@ -804,7 +804,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: tela inicial com nome do jogo
+  m_text: "Fragmentos da Culin\xE1ria Potiguar"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -831,7 +831,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 57.15
   m_fontSizeBase: 77.79
   m_fontWeight: 400
   m_enableAutoSizing: 1
