@@ -1,33 +1,56 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class RepetirLevel : MonoBehaviour
 {
-    public Transform[] blocos;
-    public float tamanhoDoBloco = 20f;
+    public Transform player;
+    public GameObject levelPiecePrefab;
+    public float pieceLength = 85.17772f;
+    public float triggerDistance = 40f;
+    public int piecesAhead = 2;
+    public GameObject firstPieceInScene;
 
-    private Transform jogador;
+    private List<GameObject> activePieces = new List<GameObject>();
 
-    private void Start()
+    void Start()
     {
-        jogador = GameObject.FindGameObjectsWithTag("Player")[0].transform;
+        activePieces.Add(firstPieceInScene);
+
+        Vector3 spawnPosition = firstPieceInScene.transform.position + Vector3.right * pieceLength;
+
+        for (int i = 1; i < piecesAhead; i++)
+        {
+            GameObject piece = Instantiate(levelPiecePrefab, spawnPosition, Quaternion.identity);
+            activePieces.Add(piece);
+            spawnPosition.x += pieceLength;
+        }
     }
 
-    private void Update()
+    void Update()
     {
-        foreach (Transform bloco in blocos)
+        GameObject lastPiece = activePieces[activePieces.Count - 1];
+        float distanceToEnd = (lastPiece.transform.position.x + pieceLength) - player.position.x;
+
+        if (distanceToEnd < triggerDistance)
         {
-            if (bloco.position.x + tamanhoDoBloco < jogador.position.x)
-            {
-                float posMaisADireita = bloco.position.x;
-                foreach (Transform b in blocos)
-                {
-                    if (b.position.x > posMaisADireita)
-                    {
-                        posMaisADireita = b.position.x;
-                    }
-                }
-                bloco.position = new Vector3(posMaisADireita + tamanhoDoBloco, bloco.position.y, bloco.position.z);
-            }
+            SpawnNextPiece();
         }
+
+        
+        GameObject firstPiece = activePieces[0];
+        if (player.position.x - firstPiece.transform.position.x > pieceLength * 1.5f)
+        {
+            activePieces.RemoveAt(0);
+            Destroy(firstPiece);
+        }
+    }
+
+    void SpawnNextPiece()
+    {
+        GameObject lastPiece = activePieces[activePieces.Count - 1];
+        Vector3 spawnPosition = lastPiece.transform.position + Vector3.right * pieceLength;
+
+        GameObject newPiece = Instantiate(levelPiecePrefab, spawnPosition, Quaternion.identity);
+        activePieces.Add(newPiece);
     }
 }
