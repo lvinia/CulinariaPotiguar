@@ -21,7 +21,7 @@ public class PlayerJump : MonoBehaviour
         
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            rb.velocity = new Vector2(rb.velocity.x, initialJumpForce);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, initialJumpForce);
             isJumping = true;
             jumpTime = 0f;
             isGrounded = false;
