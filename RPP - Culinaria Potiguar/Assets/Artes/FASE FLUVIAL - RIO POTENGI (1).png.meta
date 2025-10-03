@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3cb67babcbcbc7041973f8ad3d59b5f8
+guid: 006fa5b6d4ec460479fc7709e8e016a7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3732515527410417440
-    second: FASE FLUVIAL - RIO POTENGI_0
+      213: -651417226040221356
+    second: FASE FLUVIAL - RIO POTENGI (1)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FASE FLUVIAL - RIO POTENGI_0
+      name: FASE FLUVIAL - RIO POTENGI (1)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 02f7de1b81f8cc330800000000000000
-      internalID: 3732515527410417440
+      spriteID: 4516d49fb73b5f6f0800000000000000
+      internalID: -651417226040221356
       vertices: []
       indices: 
       edges: []
