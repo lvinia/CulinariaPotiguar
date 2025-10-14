@@ -8,6 +8,7 @@ TagManager:
   - Dano
   - Enemy
   - GameManager
+  - Background
   layers:
   - Default
   - TransparentFX
