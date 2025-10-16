@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 2641879303976652854}
   - component: {fileID: 4713116230099267385}
   - component: {fileID: 8529303493648585822}
+  - component: {fileID: -7496820122371878504}
   m_Layer: 0
   m_Name: Fragmentos
-  m_TagString: Untagged
+  m_TagString: Fragmentos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -179,4 +180,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: babd6d21ed6e17a498b9daf09175a361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 17
+  speed: 5
+--- !u!114 &-7496820122371878504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2273935993082669848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a90dc5f2906f41544a6a09fe6ad092c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

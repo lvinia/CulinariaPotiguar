@@ -2,155 +2,253 @@ using UnityEngine;
 using UnityEngine.Pool;
 using System.Collections.Generic;
 
-[System.Serializable]
-public class FaseData
-{
-    public string nome;
-    public GameObject prefab;
-}
 
 public class BackgroundManager : MonoBehaviour
 {
-    [Header("Fases e Prefabs")]
-    public List<FaseData> fases;
-    public GameObject muroPrefab;
-    public GameObject barPrefab;
+   [System.Serializable]
+   public class FaseData
+   {
+       public string nome;       // ex: "Urbana"
+       public GameObject prefab; // prefab da fase
+       public string poolKey;    // opcional; se vazio usa prefab.name
+       public string PoolKeyOrGet() => string.IsNullOrEmpty(poolKey) ? (prefab ? prefab.name : nome) : poolKey;
+   }
 
-    [Header("Camera e Movimento")]
-    public Transform cameraTransform;
-    public float velocidadeScroll = 2f;
 
-    [Header("Escala Aleatória (apenas largura)")]
-    public float minWidthMultiplier = 1.1f;
-    public float maxWidthMultiplier = 1.5f;
+   [Header("Fases e Elementos")]
+   public List<FaseData> fases;
+   public GameObject prefabMuro;
+   public GameObject prefabBar;
 
-    [Header("Remoção e Pool")]
-    public float distanciaParaRemover = 40f;
 
-    private Dictionary<string, ObjectPool<GameObject>> pools = new();
-    private List<GameObject> ativos = new();
-    private float posicaoXAtual = 0f;
-    private FaseData ultimaFaseGerada;
+   [Header("Configurações")]
+   public float tamanhoMinimo = 15f;       // largura mínima da fase
+   public float tamanhoMaximo = 25f;       // largura máxima da fase
+   public float velocidadeScroll = 5f;     // unidades por segundo
+   public float distanciaParaRemover = 40f; // quando objetos atrás da câmera devem voltar ao pool
+   public int numeroFasesParaIniciar = 5;  // gera algumas fases no início
 
-    void Start()
-    {
-        // Cria pools para as fases
-        foreach (var fase in fases)
-        {
-            pools[fase.nome] = new ObjectPool<GameObject>(
-                () => Instantiate(fase.prefab),
-                obj => obj.SetActive(true),
-                obj => obj.SetActive(false),
-                obj => Destroy(obj),
-                true, 3, 10
-            );
-        }
 
-        // Cria pool do muro
-        pools["muro"] = new ObjectPool<GameObject>(
-            () => Instantiate(muroPrefab),
-            obj => obj.SetActive(true),
-            obj => obj.SetActive(false),
-            obj => Destroy(obj),
-            true, 2, 6
-        );
+   private float posicaoXAtual = 0f;
+   private Transform cameraTransform;
+   private List<GameObject> objetosAtivos = new List<GameObject>();
+   private Dictionary<string, ObjectPool<GameObject>> pools = new Dictionary<string, ObjectPool<GameObject>>();
 
-        // Cria pool do bar
-        pools["bar"] = new ObjectPool<GameObject>(
-            () => Instantiate(barPrefab),
-            obj => obj.SetActive(true),
-            obj => obj.SetActive(false),
-            obj => Destroy(obj),
-            true, 1, 3
-        );
 
-        // Gera a primeira fase imediatamente visível
-        for (int i = 0; i < 4; i++)
-            GerarNovaFase();
-    }
+   private FaseData ultimaFase = null; // última fase gerada, para evitar repetição imediata
 
-    void Update()
-    {
-        float deslocamento = velocidadeScroll * Time.deltaTime;
 
-        // Move o fundo
-        for (int i = ativos.Count - 1; i >= 0; i--)
-        {
-            GameObject obj = ativos[i];
-            if (obj != null)
-            {
-                obj.transform.position -= new Vector3(deslocamento, 0f, 0f);
+   void Awake()
+   {
+       cameraTransform = Camera.main.transform;
 
-                // Remove o que saiu da tela
-                if (obj.transform.position.x < cameraTransform.position.x - distanciaParaRemover)
-                {
-                    string chave = obj.name.Replace("(Clone)", "").Trim();
-                    if (pools.ContainsKey(chave))
-                        pools[chave].Release(obj);
-                    else
-                        obj.SetActive(false);
 
-                    ativos.RemoveAt(i);
-                }
-            }
-        }
+       // Cria pools das fases
+       foreach (var fase in fases)
+       {
+           if (fase.prefab == null) continue;
+           string key = fase.PoolKeyOrGet();
+           if (!pools.ContainsKey(key))
+               pools[key] = CriarPool(fase.prefab, key);
+       }
 
-        // Sempre manter fases à frente da câmera
-        float limite = cameraTransform.position.x + Camera.main.orthographicSize * Camera.main.aspect + 30f;
-        while (posicaoXAtual < limite)
-        {
-            GerarNovaFase();
-        }
-    }
 
-    void GerarNovaFase()
-    {
-        if (fases.Count == 0) return;
+       // Pool muro
+       if (prefabMuro)
+       {
+           string keyMuro = string.IsNullOrEmpty(prefabMuro.name) ? "Muro" : prefabMuro.name;
+           if (!pools.ContainsKey(keyMuro))
+               pools[keyMuro] = CriarPool(prefabMuro, keyMuro);
+       }
 
-        // Escolher uma fase diferente da última
-        FaseData fase = fases[Random.Range(0, fases.Count)];
-        while (fase == ultimaFaseGerada && fases.Count > 1)
-            fase = fases[Random.Range(0, fases.Count)];
-        ultimaFaseGerada = fase;
 
-        // Criar a fase
-        GameObject novaFase = pools[fase.nome].Get();
-        novaFase.name = fase.nome;
-        novaFase.transform.position = new Vector3(posicaoXAtual, 0f, 0f);
+       // Pool bar
+       if (prefabBar)
+       {
+           string keyBar = string.IsNullOrEmpty(prefabBar.name) ? "Bar" : prefabBar.name;
+           if (!pools.ContainsKey(keyBar))
+               pools[keyBar] = CriarPool(prefabBar, keyBar);
+       }
+   }
 
-        // Ajustar largura (puxando como o Rect Tool, sem achatar)
-        float multiplicador = Random.Range(minWidthMultiplier, maxWidthMultiplier);
-        Vector3 escala = novaFase.transform.localScale;
-        novaFase.transform.localScale = new Vector3(escala.x * multiplicador, escala.y, escala.z);
 
-        ativos.Add(novaFase);
+   void Start()
+   {
+       // gera algumas fases iniciais
+       for (int i = 0; i < numeroFasesParaIniciar; i++)
+       {
+           GerarNovaFase();
+       }
+   }
 
-        // Pega largura real visível
-        SpriteRenderer sr = novaFase.GetComponent<SpriteRenderer>();
-        float larguraFase = (sr != null ? sr.bounds.size.x : 10f);
-        posicaoXAtual += larguraFase;
 
-        // Se for urbana, coloca o BAR no final da fase
-        if (fase.nome.ToLower().Contains("urbana"))
-        {
-            GameObject bar = pools["bar"].Get();
-            bar.name = "bar";
-            bar.transform.position = new Vector3(posicaoXAtual, 0f, 0f);
-            ativos.Add(bar);
+   // componente para identificar pool do objeto
+   private class PoolIdentity : MonoBehaviour { public string poolKey; }
 
-            SpriteRenderer srBar = bar.GetComponent<SpriteRenderer>();
-            if (srBar != null)
-                posicaoXAtual += srBar.bounds.size.x;
-        }
 
-        // Adiciona muro entre as fases
-        GameObject muro = pools["muro"].Get();
-        muro.name = "muro";
-        muro.transform.position = new Vector3(posicaoXAtual, 0f, 0f);
-        ativos.Add(muro);
+   private ObjectPool<GameObject> CriarPool(GameObject prefab, string poolKey)
+   {
+       return new ObjectPool<GameObject>(
+           createFunc: () =>
+           {
+               GameObject obj = Instantiate(prefab);
+               PoolIdentity id = obj.GetComponent<PoolIdentity>();
+               if (id == null) id = obj.AddComponent<PoolIdentity>();
+               id.poolKey = poolKey;
+               obj.name = poolKey;
+               obj.SetActive(false);
+               return obj;
+           },
+           actionOnGet: (obj) => obj.SetActive(true),
+           actionOnRelease: (obj) => obj.SetActive(false),
+           actionOnDestroy: (obj) => Destroy(obj),
+           collectionCheck: false,
+           defaultCapacity: 5,
+           maxSize: 50
+       );
+   }
 
-        SpriteRenderer srMuro = muro.GetComponent<SpriteRenderer>();
-        if (srMuro != null)
-            posicaoXAtual += srMuro.bounds.size.x;
-    }
+
+   void Update()
+   {
+       float deslocamento = velocidadeScroll * Time.deltaTime;
+
+
+       // move objetos ativos
+       foreach (var obj in objetosAtivos)
+       {
+           if (obj != null && obj.activeSelf)
+               obj.transform.position -= new Vector3(deslocamento, 0f, 0f);
+       }
+
+
+       // remove objetos que saíram da tela
+       for (int i = objetosAtivos.Count - 1; i >= 0; i--)
+       {
+           GameObject obj = objetosAtivos[i];
+           if (obj == null) { objetosAtivos.RemoveAt(i); continue; }
+
+
+           if (obj.activeSelf && obj.transform.position.x < cameraTransform.position.x - distanciaParaRemover)
+           {
+               PoolIdentity id = obj.GetComponent<PoolIdentity>();
+               if (id != null && pools.ContainsKey(id.poolKey))
+                   pools[id.poolKey].Release(obj);
+               else
+                   obj.SetActive(false);
+
+
+               objetosAtivos.RemoveAt(i);
+           }
+       }
+
+
+       // garante que sempre haja fases suficientes à frente da câmera
+       while (posicaoXAtual < cameraTransform.position.x + Camera.main.orthographicSize * Camera.main.aspect + 20f)
+       {
+           GerarNovaFase();
+       }
+   }
+
+
+   private void GerarNovaFase()
+   {
+       // escolhe fase aleatória, diferente da última
+       FaseData faseEscolhida;
+       do
+       {
+           faseEscolhida = fases[Random.Range(0, fases.Count)];
+       } while (fases.Count > 1 && faseEscolhida == ultimaFase);
+
+
+       CriarFase(faseEscolhida);
+
+
+       // adiciona muro
+       if (prefabMuro) CriarMuro();
+
+
+       ultimaFase = faseEscolhida;
+   }
+
+
+   private void CriarFase(FaseData faseData)
+   {
+       string chave = faseData.PoolKeyOrGet();
+       if (!pools.ContainsKey(chave)) return;
+
+
+       GameObject fase = pools[chave].Get();
+       fase.transform.SetParent(transform, worldPositionStays: true);
+
+
+       // largura aleatória apenas para fases
+       float larguraAleatoria = Random.Range(tamanhoMinimo, tamanhoMaximo);
+
+
+       SpriteRenderer sr = fase.GetComponent<SpriteRenderer>();
+       if (sr != null && sr.drawMode == SpriteDrawMode.Tiled)
+       {
+           Vector2 size = sr.size;
+           size.x = larguraAleatoria; // aumenta horizontalmente sem achatar
+           sr.size = size;
+       }
+
+
+       // se fase urbana, adiciona bar colado na borda esquerda da fase
+       if (!string.IsNullOrEmpty(faseData.nome) && faseData.nome.ToLowerInvariant().Contains("urbana") && prefabBar != null)
+       {
+           string barKey = string.IsNullOrEmpty(prefabBar.name) ? "Bar" : prefabBar.name;
+           if (pools.ContainsKey(barKey))
+           {
+               GameObject bar = pools[barKey].Get();
+               bar.transform.SetParent(transform, worldPositionStays: true);
+
+
+               SpriteRenderer srBar = bar.GetComponent<SpriteRenderer>();
+               float larguraBar = (srBar != null) ? srBar.size.x : 5f;
+
+
+               // posiciona bar na borda esquerda da fase urbana
+               float barPosX = posicaoXAtual + (larguraBar / 2f);
+               bar.transform.position = new Vector3(barPosX, 0f, 0f);
+               objetosAtivos.Add(bar);
+           }
+       }
+
+
+       // posiciona a fase (após o bar)
+       float fasePosX = posicaoXAtual + (larguraAleatoria / 2f);
+       fase.transform.position = new Vector3(fasePosX, 0f, 0f);
+       objetosAtivos.Add(fase);
+
+
+       posicaoXAtual += larguraAleatoria;
+   }
+
+
+   private void CriarMuro()
+   {
+       if (!prefabMuro) return;
+
+
+       string key = string.IsNullOrEmpty(prefabMuro.name) ? "Muro" : prefabMuro.name;
+       if (!pools.ContainsKey(key)) return;
+
+
+       GameObject muro = pools[key].Get();
+       muro.transform.SetParent(transform, worldPositionStays: true);
+
+
+       SpriteRenderer sr = muro.GetComponent<SpriteRenderer>();
+       float largura = (sr != null) ? sr.size.x : 5f;
+
+
+       float muroPosX = posicaoXAtual + (largura / 2f);
+       muro.transform.position = new Vector3(muroPosX, 0f, 0f);
+       objetosAtivos.Add(muro);
+
+
+       posicaoXAtual += largura;
+   }
 }

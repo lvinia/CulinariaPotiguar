@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - GameManager
   - Background
+  - Fragmentos
   layers:
   - Default
   - TransparentFX

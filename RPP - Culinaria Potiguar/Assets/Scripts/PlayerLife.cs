@@ -38,6 +38,7 @@ public class PlayerLife : MonoBehaviour
         if (vidas <= 0)
         {
             GameOver();
+            FragmentManager.Instance.ResetFragments();
         }
         else
         {
