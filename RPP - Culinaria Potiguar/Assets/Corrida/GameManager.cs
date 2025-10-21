@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance; // Singleton para acesso fácil
+
     public GameObject[] flyingObstacles;
     public GameObject[] flyingSpawnPoints;
     public float flyingTimer;
@@ -13,16 +15,27 @@ public class GameManager : MonoBehaviour
     public float groundTimer;
     public float timeBetweenGroundSpawns = 2f;
 
-    public float speedMultiplier;
+    public float speedMultiplier = 1f; // Valor inicial importante!
+    public float speedIncreaseRate = 0.1f; // Taxa de aumento da velocidade
 
     public Text distanceUI;
     private float distance;
 
+    void Awake()
+    {
+        // Configurar Singleton
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+    }
+
     void Update()
     {
         distanceUI.text = "Distance: " + distance.ToString("F2");
-
-        speedMultiplier += Time.deltaTime * 0.1f;
+        
+        // Aumentar velocidade gradualmente
+        speedMultiplier += Time.deltaTime * speedIncreaseRate;
         distance += Time.deltaTime * 0.8f;
 
         // Timer dos voadores

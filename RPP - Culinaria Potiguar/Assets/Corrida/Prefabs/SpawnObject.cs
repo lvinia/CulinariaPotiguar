@@ -3,27 +3,27 @@ using UnityEngine;
 public class SpawnObject : MonoBehaviour
 {
     private Rigidbody2D rb;
-    public float speed;
-
-    private GameManager gm;
+    public float baseSpeed = 5f; // Velocidade base do objeto
     
     private float timer;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
-        gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;
-
-        if (timer > 6)
+        
+        // Destruir após 6 segundos
+        if (timer > 10)
         {
             Destroy(gameObject);
         }
-        rb.linearVelocity = Vector2.left * (speed + gm.speedMultiplier);
+
+        // Velocidade = velocidade base * multiplicador global
+        float currentSpeed = baseSpeed * GameManager.Instance.speedMultiplier;
+        rb.linearVelocity = Vector2.left * currentSpeed;
     }
 }
