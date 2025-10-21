@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public float groundTimer;
     public float timeBetweenGroundSpawns = 2f;
 
+    public float speedBase = 5f;
     public float speedMultiplier = 1f; // Valor inicial importante!
     public float speedIncreaseRate = 0.1f; // Taxa de aumento da velocidade
 
