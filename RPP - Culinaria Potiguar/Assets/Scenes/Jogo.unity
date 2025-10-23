@@ -233,16 +233,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayerLife, Assembly-CSharp
-        m_MethodName: ReiniciarJogo
-        m_Mode: 1
+      - m_Target: {fileID: 11500000, guid: 0c898d9c5ac19b049abf2c6ae3f315d9, type: 3}
+        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
+        m_MethodName: set_name
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Jogo
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &63819613
@@ -308,7 +308,7 @@ Transform:
   m_GameObject: {fileID: 101054466}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.24643, y: -1.8445615, z: 9.87203}
+  m_LocalPosition: {x: 13.8, y: -1.8445615, z: 9.87203}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -339,7 +339,7 @@ Transform:
   m_GameObject: {fileID: 145789768}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.24643, y: 4.9354386, z: 9.87203}
+  m_LocalPosition: {x: 14.35, y: 4.9354386, z: 9.87203}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -884,7 +884,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1903,8 +1903,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flyingObstacles:
-  - {fileID: 424175113771214518, guid: eeacf1a15e9fefb4d8dc11f7c98a4fd1, type: 3}
-  - {fileID: 7928603651512113011, guid: 3f64f33821b74ad44b8de5125fa58f08, type: 3}
+  - {fileID: 0}
+  - {fileID: 3717636293619655025, guid: c43afb3aa3417d641bbe07fe74d3417c, type: 3}
   flyingSpawnPoints:
   - {fileID: 2066878620}
   - {fileID: 1920000194}
@@ -1912,15 +1912,15 @@ MonoBehaviour:
   flyingTimer: 0
   timeBetweenFlyingSpawns: 3
   groundObstacles:
-  - {fileID: 7854306776174599079, guid: f79f6799e6b486c489e477217efb8d89, type: 3}
-  - {fileID: 5667064171545626546, guid: 5772a5dfe6cad4743b9ea41d7ccaf819, type: 3}
-  - {fileID: 6663918648561798749, guid: 4fa406e1e76f64448968c3c55a02c31d, type: 3}
-  - {fileID: 3609995973677126656, guid: fdc3cb2b238216e4baa7c76175284c33, type: 3}
+  - {fileID: 0}
+  - {fileID: 8618464694184328206, guid: d71352c75886ae540a8fe3afba7325b0, type: 3}
+  - {fileID: 7097832812761356203, guid: 81adba8a7065133449f052fee03806fb, type: 3}
+  - {fileID: 0}
   groundSpawnPoints:
   - {fileID: 101054466}
   groundTimer: 0
   timeBetweenGroundSpawns: 3
-  speedBase: 5
+  speedBase: 2
   speedMultiplier: 0
   speedIncreaseRate: 0.1
   distanceUI: {fileID: 1420485828}
@@ -1963,7 +1963,7 @@ MonoBehaviour:
   - {fileID: 8090947104098483793, guid: 1d0f661d6ae1bab4f8a90ba718f66bb0, type: 3}
   - {fileID: 50716067761490575, guid: abb71674bd383c943b20508d8dab6f7e, type: 3}
   baseSpeed: 0
-  speedToSizeMultiplier: 0.01
+  speedToSizeMultiplier: 0.0001
 --- !u!1 &1704613506
 GameObject:
   m_ObjectHideFlags: 0
@@ -2319,7 +2319,7 @@ Transform:
   m_GameObject: {fileID: 1920000194}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.24643, y: 1.2554386, z: 9.87203}
+  m_LocalPosition: {x: 14.29, y: 1.2554386, z: 9.87203}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2446,7 +2446,7 @@ Transform:
   m_GameObject: {fileID: 2066878620}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.24643, y: 3.0854385, z: 9.87203}
+  m_LocalPosition: {x: 14.18, y: 3.0854385, z: 9.87203}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2521,12 +2521,24 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8496946680715613553, guid: 2be1ceae4dcf90641bbe8e13ecbba665, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.08911707
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496946680715613553, guid: 2be1ceae4dcf90641bbe8e13ecbba665, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.08911708
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496946680715613553, guid: 2be1ceae4dcf90641bbe8e13ecbba665, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.08911707
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496946680715613553, guid: 2be1ceae4dcf90641bbe8e13ecbba665, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.74215
+      value: -6.6262
       objectReference: {fileID: 0}
     - target: {fileID: 8496946680715613553, guid: 2be1ceae4dcf90641bbe8e13ecbba665, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.1514246
+      value: -2.9
       objectReference: {fileID: 0}
     - target: {fileID: 8496946680715613553, guid: 2be1ceae4dcf90641bbe8e13ecbba665, type: 3}
       propertyPath: m_LocalPosition.z
