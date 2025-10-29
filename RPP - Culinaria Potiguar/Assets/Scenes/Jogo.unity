@@ -233,10 +233,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 0c898d9c5ac19b049abf2c6ae3f315d9, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
-        m_MethodName: set_name
-        m_Mode: 5
+      - m_Target: {fileID: 1241254066}
+        m_TargetAssemblyTypeName: ReiniciarCena, Assembly-CSharp
+        m_MethodName: Reiniciar
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1156,8 +1156,12 @@ MonoBehaviour:
   powerSpawnPoints:
   - {fileID: 41950742}
   - {fileID: 580911984}
-  timeBetweenFragmentSpawns: 10
-  timeBetweenPowerSpawns: 20
+  fragmentSpawnInicial: 8
+  fragmentSpawnMinimo: 2
+  fragmentTempoParaMaximo: 60
+  powerSpawnInicial: 8
+  powerSpawnMinimo: 2
+  powerTempoParaMaximo: 60
 --- !u!4 &574345095
 Transform:
   m_ObjectHideFlags: 0
@@ -1292,6 +1296,21 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 2392691657429902536, guid: 2be1ceae4dcf90641bbe8e13ecbba665, type: 3}
   m_PrefabInstance: {fileID: 1490686669404367932}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &712815734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712815719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0de75c1f61e9bf47a49865b2ff98193, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidadeInicial: 0.3
+  velocidadeMaxima: 1
+  tempoParaAtingirMaximo: 40
 --- !u!1 &1056669389
 GameObject:
   m_ObjectHideFlags: 0
@@ -1485,6 +1504,7 @@ GameObject:
   - component: {fileID: 1241254064}
   - component: {fileID: 1241254063}
   - component: {fileID: 1241254062}
+  - component: {fileID: 1241254066}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1579,6 +1599,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 800, y: 450.21896}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1241254066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241254061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dad8ec238f73064283fbb5514a709c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1330778134
 GameObject:
   m_ObjectHideFlags: 0
@@ -1909,8 +1941,9 @@ MonoBehaviour:
   - {fileID: 2066878620}
   - {fileID: 1920000194}
   - {fileID: 145789768}
-  flyingTimer: 0
-  timeBetweenFlyingSpawns: 3
+  flyingSpawnInicial: 3
+  flyingSpawnMinimo: 0.8
+  flyingTempoParaMaximo: 200
   groundObstacles:
   - {fileID: 0}
   - {fileID: 8618464694184328206, guid: d71352c75886ae540a8fe3afba7325b0, type: 3}
@@ -1918,11 +1951,12 @@ MonoBehaviour:
   - {fileID: 0}
   groundSpawnPoints:
   - {fileID: 101054466}
-  groundTimer: 0
-  timeBetweenGroundSpawns: 3
-  speedBase: 2
-  speedMultiplier: 0
-  speedIncreaseRate: 0.1
+  groundSpawnInicial: 3
+  groundSpawnMinimo: 2
+  groundTempoParaMaximo: 200
+  speedBase: 5
+  speedMultiplier: 1
+  speedIncreaseRate: 0.01
   distanceUI: {fileID: 1420485828}
 --- !u!4 &1650669910
 Transform:
@@ -2576,7 +2610,10 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 4233262583902505396, guid: 2be1ceae4dcf90641bbe8e13ecbba665, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 791818618570714473, guid: 2be1ceae4dcf90641bbe8e13ecbba665, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 712815734}
   m_SourcePrefab: {fileID: 100100000, guid: 2be1ceae4dcf90641bbe8e13ecbba665, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
