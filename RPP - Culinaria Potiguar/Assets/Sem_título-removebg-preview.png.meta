@@ -1,22 +1,10 @@
 fileFormatVersion: 2
-guid: 5b1505a4f6d721a45994fddc891ac542
+guid: 4795b491daad76f4da911f23d7267d7d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8087286515439505273
-    second: helth bar_0
-  - first:
-      213: -7659746576786566548
-    second: helth bar_1
-  - first:
-      213: 57591552680381433
-    second: helth bar_2
-  - first:
-      213: -1226988951354288082
-    second: helth bar_3
-  - first:
-      213: -149178979280872741
-    second: helth bar_4
+      213: -2958286131908512331
+    second: "Sem_t\xEDtulo-removebg-preview_0"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -63,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 72
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -112,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: helth bar_0
+      name: "Sem_t\xEDtulo-removebg-preview_0"
       rect:
         serializedVersion: 2
-        x: 4
-        y: 49
-        width: 24
-        height: 9
+        x: 97
+        y: 128
+        width: 565
+        height: 145
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,96 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 97f049dcc30db3070800000000000000
-      internalID: 8087286515439505273
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: helth bar_1
-      rect:
-        serializedVersion: 2
-        x: 36
-        y: 49
-        width: 24
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c625f1d421d13b590800000000000000
-      internalID: -7659746576786566548
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: helth bar_2
-      rect:
-        serializedVersion: 2
-        x: 68
-        y: 49
-        width: 24
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9fbc397463b9cc000800000000000000
-      internalID: 57591552680381433
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: helth bar_3
-      rect:
-        serializedVersion: 2
-        x: 4
-        y: 17
-        width: 24
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e28d233bc0cd8fee0800000000000000
-      internalID: -1226988951354288082
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: helth bar_4
-      rect:
-        serializedVersion: 2
-        x: 36
-        y: 17
-        width: 24
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: bda120c32820eedf0800000000000000
-      internalID: -149178979280872741
+      spriteID: 5b5f0abcf6e02f6d0800000000000000
+      internalID: -2958286131908512331
       vertices: []
       indices: 
       edges: []
@@ -234,12 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      helth bar_0: 8087286515439505273
-      helth bar_1: -7659746576786566548
-      helth bar_2: 57591552680381433
-      helth bar_3: -1226988951354288082
-      helth bar_4: -149178979280872741
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

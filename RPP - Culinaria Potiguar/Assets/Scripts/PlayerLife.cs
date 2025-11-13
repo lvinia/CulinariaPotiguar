@@ -8,7 +8,7 @@ public class PlayerLife : MonoBehaviour
     public float invulnerabilidadeTempo = 0.3f;
     
     public TextMeshProUGUI textoVidas;
-    public SpriteRenderer spriteRenderer; // Arraste o SpriteRenderer da personagem aqui
+    public SpriteRenderer spriteRenderer;
     public GameObject telaGameOver;
     
     private bool estaInvulneravel = false;
@@ -19,7 +19,6 @@ public class PlayerLife : MonoBehaviour
         AtualizarTextoVidas();
         telaGameOver.SetActive(false);
         
-        // Salvar cor original
         if (spriteRenderer != null)
             corNormal = spriteRenderer.color;
     }
@@ -58,7 +57,6 @@ public class PlayerLife : MonoBehaviour
     {
         estaInvulneravel = true;
         
-        // Piscar vermelho
         float elapsed = 0f;
         while (elapsed < invulnerabilidadeTempo)
         {
@@ -91,5 +89,11 @@ public class PlayerLife : MonoBehaviour
         {
             GameOver();
         }
+    }
+    
+    // Método adicionado para compatibilidade com BarraDeVida
+    public int getVida()
+    {
+        return vidas;
     }
 }
