@@ -2,66 +2,71 @@ using UnityEngine;
 
 public class CollectibleSpawner : MonoBehaviour
 {
-    public GameObject[] fragments; // Fragmentos
-    public GameObject[] powers;    // Poderes colecionáveis
-
+    [Header("Fragmentos")]
+    public GameObject[] fragmentPrefabs; // Array com os 6 prefabs diferentes de fragmentos
     public Transform[] fragmentSpawnPoints;
-    public Transform[] powerSpawnPoints;
-
-    [Header("Configurações de Aceleração - Fragmentos")]
+    
+    [Header("Configurações de Aceleração")]
     public float fragmentSpawnInicial = 8f; // Tempo inicial entre spawns
     public float fragmentSpawnMinimo = 2f;  // Tempo mínimo (velocidade máxima)
     public float fragmentTempoParaMaximo = 60f; // Tempo em segundos para atingir velocidade máxima
-
-    [Header("Configurações de Aceleração - Poderes")]
-    public float powerSpawnInicial = 12f;
-    public float powerSpawnMinimo = 4f;
-    public float powerTempoParaMaximo = 60f;
-
+    
     private float fragmentTimer;
-    private float powerTimer;
     private float tempoDecorrido;
-
     private float timeBetweenFragmentSpawns;
-    private float timeBetweenPowerSpawns;
-
+    
     void Start()
     {
-        // Inicializa com os valores iniciais
-        timeBetweenFragmentSpawns = fragmentSpawnInicial;
-        timeBetweenPowerSpawns = powerSpawnInicial;
+        ResetSpawner();
     }
-
+    
+    void OnEnable()
+    {
+        // Reseta quando o objeto é reativado
+        ResetSpawner();
+    }
+    
     void Update()
     {
         // Atualiza o tempo decorrido
         tempoDecorrido += Time.deltaTime;
-
+        
         // Calcula a aceleração gradual
         float progressoFragment = Mathf.Clamp01(tempoDecorrido / fragmentTempoParaMaximo);
         timeBetweenFragmentSpawns = Mathf.Lerp(fragmentSpawnInicial, fragmentSpawnMinimo, progressoFragment);
-
-        float progressoPower = Mathf.Clamp01(tempoDecorrido / powerTempoParaMaximo);
-        timeBetweenPowerSpawns = Mathf.Lerp(powerSpawnInicial, powerSpawnMinimo, progressoPower);
-
+        
         // Spawn dos fragmentos
         fragmentTimer += Time.deltaTime;
         if (fragmentTimer > timeBetweenFragmentSpawns)
         {
             fragmentTimer = 0;
-            int randPoint = Random.Range(0, fragmentSpawnPoints.Length);
-            int randFragment = Random.Range(0, fragments.Length);
-            Instantiate(fragments[randFragment], fragmentSpawnPoints[randPoint].position, Quaternion.identity);
+            SpawnFragment();
         }
-
-        // Spawn dos poderes
-        powerTimer += Time.deltaTime;
-        if (powerTimer > timeBetweenPowerSpawns)
+    }
+    
+    void SpawnFragment()
+    {
+        // Escolhe um ponto de spawn aleatório
+        int randPoint = Random.Range(0, fragmentSpawnPoints.Length);
+        
+        // Escolhe um prefab aleatório entre os 6
+        int randFragment = Random.Range(0, fragmentPrefabs.Length);
+        
+        // Instancia o fragmento
+        Instantiate(fragmentPrefabs[randFragment], fragmentSpawnPoints[randPoint].position, Quaternion.identity);
+    }
+    
+    public void ResetSpawner()
+    {
+        // Reseta todos os valores para o estado inicial
+        timeBetweenFragmentSpawns = fragmentSpawnInicial;
+        fragmentTimer = 0;
+        tempoDecorrido = 0;
+        
+        // Verifica se tem 6 prefabs
+        if (fragmentPrefabs.Length != 6)
         {
-            powerTimer = 0;
-            int randPoint = Random.Range(0, powerSpawnPoints.Length);
-            int randPower = Random.Range(0, powers.Length);
-            Instantiate(powers[randPower], powerSpawnPoints[randPoint].position, Quaternion.identity);
+            Debug.LogWarning("Atenção: Você deve adicionar exatamente 6 prefabs de fragmentos!");
         }
     }
 }

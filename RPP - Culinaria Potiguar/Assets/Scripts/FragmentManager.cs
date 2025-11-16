@@ -4,62 +4,108 @@ using UnityEngine.SceneManagement;
 
 public class FragmentManager : MonoBehaviour
 {
-    public static FragmentManager Instance; // Singleton para acessar de outros scripts
-    public Text fragmentText; // Referência ao texto da UI
+    public static FragmentManager Instance;
+    public Text fragmentText;
     private int fragmentCount = 0;
-
+    
     private void Awake()
     {
-        // Garante que só exista um FragmentManager
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // persiste entre cenas
+            DontDestroyOnLoad(gameObject);
+            Debug.Log("FragmentManager criado");
         }
         else
         {
+            Debug.Log("FragmentManager duplicado destruído");
             Destroy(gameObject);
         }
     }
-
+    
     void Start()
     {
+        FindFragmentText();
         UpdateUI();
-        SceneManager.sceneLoaded += OnSceneLoaded; // Quando cena carregar, atualiza UI
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
-
+    
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Se a cena for o jogo, tenta achar o texto de novo (caso ele seja destruído)
+        Debug.Log("Cena carregada: " + scene.name);
+        
         if (scene.name != "Final")
         {
-            if (fragmentText == null)
-                fragmentText = GameObject.FindWithTag("FragmentText")?.GetComponent<Text>();
+            ResetFragments();
+            
+            // Reseta o spawner também
+            CollectibleSpawner spawner = FindObjectOfType<CollectibleSpawner>();
+            if (spawner != null)
+            {
+                spawner.ResetSpawner(); 
+                Debug.Log("Spawner resetado");
+            }
+            
+            // IMPORTANTE: Procura o texto novamente
+            FindFragmentText();
             UpdateUI();
         }
     }
-
+    
+    private void FindFragmentText()
+    {
+        // Tenta encontrar pela tag
+        GameObject textObj = GameObject.FindWithTag("FragmentText");
+        if (textObj != null)
+        {
+            fragmentText = textObj.GetComponent<Text>();
+            Debug.Log("FragmentText encontrado!");
+        }
+        else
+        {
+            Debug.LogError("Objeto com tag 'FragmentText' não encontrado na cena!");
+        }
+    }
+    
     public void AddFragment()
     {
         fragmentCount++;
+        Debug.Log("Fragmento coletado! Total: " + fragmentCount);
         UpdateUI();
-
+        
         if (fragmentCount >= 10)
         {
-            fragmentCount = 0;
             SceneManager.LoadScene("Final");
         }
     }
-
+    
     public void ResetFragments()
     {
         fragmentCount = 0;
+        Debug.Log("Fragmentos resetados para 0");
         UpdateUI();
     }
-
+    
     private void UpdateUI()
     {
         if (fragmentText != null)
+        {
             fragmentText.text = "Fragmentos: " + fragmentCount.ToString();
+            Debug.Log("UI atualizada: " + fragmentCount);
+        }
+        else
+        {
+            Debug.LogWarning("fragmentText está NULL! Tentando encontrar novamente...");
+            FindFragmentText();
+            if (fragmentText != null)
+            {
+                fragmentText.text = "Fragmentos: " + fragmentCount.ToString();
+            }
+        }
+    }
+    
+    void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }
