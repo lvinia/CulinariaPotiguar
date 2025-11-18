@@ -1,0 +1,403 @@
+fileFormatVersion: 2
+guid: bf0d9f45517cc9444b10c7ec4131df2e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5985109973580398778
+    second: computer-keyboard-button-layout-template-with-letters-for-graphic-use-transparent-background-illustration-png_0
+  - first:
+      213: 4523016547417444937
+    second: computer-keyboard-button-layout-template-with-letters-for-graphic-use-transparent-background-illustration-png_1
+  - first:
+      213: 6925210560532461976
+    second: computer-keyboard-button-layout-template-with-letters-for-graphic-use-transparent-background-illustration-png_2
+  - first:
+      213: 2523278472162780817
+    second: computer-keyboard-button-layout-template-with-letters-for-graphic-use-transparent-background-illustration-png_3
+  - first:
+      213: 2374819069144229228
+    second: computer-keyboard-button-layout-template-with-letters-for-graphic-use-transparent-background-illustration-png_4
+  - first:
+      213: 1152473323161793662
+    second: computer-keyboard-button-layout-template-with-letters-for-graphic-use-transparent-background-illustration-png_5
+  - first:
+      213: -2411091658196605568
+    second: computer-keyboard-button-layout-template-with-letters-for-graphic-use-transparent-background-illustration-png_6
+  - first:
+      213: -6112484107096442325
+    second: computer-keyboard-button-layout-template-with-letters-for-graphic-use-transparent-background-illustration-png_7
+  - first:
+      213: -3026292755936645794
+    second: computer-keyboard-button-layout-template-with-letters-for-graphic-use-transparent-background-illustration-png_8
+  - first:
+      213: 890343386196391038
+    second: computer-keyboard-button-layout-template-with-letters-for-graphic-use-transparent-background-illustration-png_9
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: computer-keyboard-button-layout-template-with-letters-for-graphic-use-transparent-background-illustration-png_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 311
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab048ec7fc16f0350800000000000000
+      internalID: 5985109973580398778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: computer-keyboard-button-layout-template-with-letters-for-graphic-use-transparent-background-illustration-png_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 18
+        width: 33
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 942d70ef59bf4ce30800000000000000
+      internalID: 4523016547417444937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: computer-keyboard-button-layout-template-with-letters-for-graphic-use-transparent-background-illustration-png_2
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 69
+        width: 50
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 899325f305a4b1060800000000000000
+      internalID: 6925210560532461976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: computer-keyboard-button-layout-template-with-letters-for-graphic-use-transparent-background-illustration-png_3
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 18
+        width: 245
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19627aac66c740320800000000000000
+      internalID: 2523278472162780817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: computer-keyboard-button-layout-template-with-letters-for-graphic-use-transparent-background-illustration-png_4
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 69
+        width: 50
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c656a2e6c5d05f020800000000000000
+      internalID: 2374819069144229228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: computer-keyboard-button-layout-template-with-letters-for-graphic-use-transparent-background-illustration-png_5
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 69
+        width: 50
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e743c20a1686eff00800000000000000
+      internalID: 1152473323161793662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: computer-keyboard-button-layout-template-with-letters-for-graphic-use-transparent-background-illustration-png_6
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 69
+        width: 50
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 085a84059e41a8ed0800000000000000
+      internalID: -2411091658196605568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: computer-keyboard-button-layout-template-with-letters-for-graphic-use-transparent-background-illustration-png_7
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 69
+        width: 50
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2abb4507181c2ba0800000000000000
+      internalID: -6112484107096442325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: computer-keyboard-button-layout-template-with-letters-for-graphic-use-transparent-background-illustration-png_8
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 18
+        width: 34
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5dee00c5c27006d0800000000000000
+      internalID: -3026292755936645794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: computer-keyboard-button-layout-template-with-letters-for-graphic-use-transparent-background-illustration-png_9
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 69
+        width: 28
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e74ba5ea7922b5c00800000000000000
+      internalID: 890343386196391038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 78d5292cd8f602b46b52e898bd4e0772
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      computer-keyboard-button-layout-template-with-letters-for-graphic-use-transparent-background-illustration-png_0: 5985109973580398778
+      computer-keyboard-button-layout-template-with-letters-for-graphic-use-transparent-background-illustration-png_1: 4523016547417444937
+      computer-keyboard-button-layout-template-with-letters-for-graphic-use-transparent-background-illustration-png_2: 6925210560532461976
+      computer-keyboard-button-layout-template-with-letters-for-graphic-use-transparent-background-illustration-png_3: 2523278472162780817
+      computer-keyboard-button-layout-template-with-letters-for-graphic-use-transparent-background-illustration-png_4: 2374819069144229228
+      computer-keyboard-button-layout-template-with-letters-for-graphic-use-transparent-background-illustration-png_5: 1152473323161793662
+      computer-keyboard-button-layout-template-with-letters-for-graphic-use-transparent-background-illustration-png_6: -2411091658196605568
+      computer-keyboard-button-layout-template-with-letters-for-graphic-use-transparent-background-illustration-png_7: -6112484107096442325
+      computer-keyboard-button-layout-template-with-letters-for-graphic-use-transparent-background-illustration-png_8: -3026292755936645794
+      computer-keyboard-button-layout-template-with-letters-for-graphic-use-transparent-background-illustration-png_9: 890343386196391038
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

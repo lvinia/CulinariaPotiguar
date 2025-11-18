@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 095470a90416aba4bb66df9942d63ede
+guid: 5940528030edbf8418612498af3b0757
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4085143608081908166
-    second: CARNE DE SOL_0
+      213: 2015473637033300748
+    second: "\xCDCONE - FRAGMENTOS _0"
+  - first:
+      213: 2504666215203903299
+    second: "\xCDCONE - FRAGMENTOS _1"
+  - first:
+      213: -4168211540285843483
+    second: "\xCDCONE - FRAGMENTOS _2"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -48,7 +54,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -126,23 +132,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CARNE DE SOL_0
+      name: "\xCDCONE - FRAGMENTOS _0"
       rect:
         serializedVersion: 2
-        x: 19
-        y: 15
-        width: 740
-        height: 332
+        x: 10
+        y: 0
+        width: 831
+        height: 725
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6c10e20b77851b830800000000000000
-      internalID: 4085143608081908166
+      spriteID: c03d88d289668fb10800000000000000
+      internalID: 2015473637033300748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xCDCONE - FRAGMENTOS _1"
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 45
+        width: 570
+        height: 570
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 347962607ac52c220800000000000000
+      internalID: 2504666215203903299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xCDCONE - FRAGMENTOS _2"
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 5
+        width: 109
+        height: 713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e7149030b98726c0800000000000000
+      internalID: -4168211540285843483
       vertices: []
       indices: 
       edges: []
@@ -151,7 +201,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5558a267bd526c946b4c1db574159739
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +211,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      CARNE DE SOL_0: 4085143608081908166
+      "\xCDCONE - FRAGMENTOS _0": 2015473637033300748
+      "\xCDCONE - FRAGMENTOS _1": 2504666215203903299
+      "\xCDCONE - FRAGMENTOS _2": -4168211540285843483
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
