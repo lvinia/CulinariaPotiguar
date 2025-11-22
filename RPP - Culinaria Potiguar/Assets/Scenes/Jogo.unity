@@ -1864,7 +1864,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!224 &1390158353
 RectTransform:
@@ -2204,13 +2204,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgrounds:
-  - {fileID: -484284792035554185, guid: 77c2ca92ddc69dc4d9e6b0fff79f75d6, type: 3}
+  - {fileID: -4578270795908762615, guid: 9ad9873e531475744bc2c0e2aafaf47c, type: 3}
   - {fileID: 3732515527410417440, guid: c046fe6ef9f15ef468078ff869e6b55a, type: 3}
   - {fileID: 6290283663008591456, guid: 1c66b46dfdb2b8e47b346e508b680e40, type: 3}
   - {fileID: -6638226591382465707, guid: 72ab60f028f447e47bf22c090611921a, type: 3}
   - {fileID: 50716067761490575, guid: 95ae44e2bf8061d42887f9d982ea324e, type: 3}
   - {fileID: 5659476185498720100, guid: f5227392ee8cec148a251d861a8d67e7, type: 3}
-  baseSpeed: 2
+  baseSpeed: 1
   speedToSizeMultiplier: 0.008
   playerSpeedController: {fileID: 712815734}
   usarVelocidadeDoPlayer: 1
@@ -2653,7 +2653,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 390, y: 182}
+  m_AnchoredPosition: {x: 381, y: 182}
   m_SizeDelta: {x: 274.84, y: 176.33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1784547183

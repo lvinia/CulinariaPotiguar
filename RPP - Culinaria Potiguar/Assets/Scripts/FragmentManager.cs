@@ -90,7 +90,7 @@ public class FragmentManager : MonoBehaviour
     {
         if (fragmentText != null)
         {
-            fragmentText.text = "" + fragmentCount.ToString();
+            fragmentText.text = " " + fragmentCount.ToString();
             Debug.Log("UI atualizada: " + fragmentCount);
         }
         else
@@ -99,7 +99,7 @@ public class FragmentManager : MonoBehaviour
             FindFragmentText();
             if (fragmentText != null)
             {
-                fragmentText.text = "" + fragmentCount.ToString();
+                fragmentText.text = " " + fragmentCount.ToString();
             }
         }
     }
