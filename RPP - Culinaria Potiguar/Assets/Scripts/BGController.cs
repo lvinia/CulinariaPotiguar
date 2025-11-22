@@ -23,16 +23,26 @@ public class BGController : MonoBehaviour
     public WallTransition wallTransition;
     private bool aguardandoTroca = false;
     
+    [Header("Ajuste de Escala")]
+    public float multiplicadorAltura = 1.5f;
+    public float offsetVertical = 0f; // NOVO - Ajusta a posição Y
+    
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        baseSize = spriteRenderer.size;
         
         // Define o primeiro background
         if (backgrounds.Count > 0)
         {
             spriteRenderer.sprite = backgrounds[0];
         }
+        
+        // Ajusta o tamanho inicial
+        AjustarTamanhoBackground();
+        baseSize = spriteRenderer.size;
+        
+        // Centraliza o background
+        CentralizarBackground();
         
         // Procura o player
         if (playerSpeedController == null && usarVelocidadeDoPlayer)
@@ -53,9 +63,48 @@ public class BGController : MonoBehaviour
         }
     }
     
+    void CentralizarBackground()
+    {
+        Camera cam = Camera.main;
+        Vector3 posicao = transform.position;
+        posicao.y = cam.transform.position.y + offsetVertical; // MODIFICADO
+        posicao.z = 0;
+        transform.position = posicao;
+    }
+    
+    void AjustarTamanhoBackground()
+    {
+        Camera cam = Camera.main;
+        
+        // Calcula o tamanho exato da câmera em world units
+        float alturaCamera = cam.orthographicSize * 2f;
+        float larguraCamera = alturaCamera * cam.aspect;
+        
+        Sprite sprite = spriteRenderer.sprite;
+        if (sprite == null) return;
+        
+        // Calcula proporção da sprite original
+        float proporcaoSprite = sprite.bounds.size.x / sprite.bounds.size.y;
+        
+        // SOLUÇÃO DEFINITIVA: Sempre usa a altura da câmera multiplicada
+        // e ajusta a largura proporcionalmente
+        float alturaFinal = alturaCamera * multiplicadorAltura;
+        float larguraFinal = alturaFinal * proporcaoSprite;
+        
+        // Garante que também cobre a largura
+        if (larguraFinal < larguraCamera)
+        {
+            larguraFinal = larguraCamera * 1.2f;
+            alturaFinal = larguraFinal / proporcaoSprite;
+        }
+        
+        spriteRenderer.size = new Vector2(larguraFinal, alturaFinal);
+        
+        Debug.Log($"Background ajustado: {larguraFinal} x {alturaFinal} | Câmera: {larguraCamera} x {alturaCamera}");
+    }
+    
     void Update()
     {
-        // Movimento do background (como estava antes)
         float currentSpeed = speedToSizeMultiplier * (baseSpeed + GameManager.Instance.speedBase) * GameManager.Instance.speedMultiplier;
         
         if (usarVelocidadeDoPlayer && playerSpeedController != null)
@@ -66,7 +115,6 @@ public class BGController : MonoBehaviour
         
         spriteRenderer.size = new Vector2(spriteRenderer.size.x + currentSpeed, baseSize.y);
         
-        // Controle de tempo para ativar o muro
         tempoDecorrido += Time.deltaTime;
         
         if (tempoDecorrido >= tempoParaTrocar && !aguardandoTroca && backgrounds.Count > 0)
@@ -78,7 +126,6 @@ public class BGController : MonoBehaviour
             }
             else
             {
-                // Se não tem muro, troca direto
                 TrocarBackground();
             }
         }
@@ -96,6 +143,10 @@ public class BGController : MonoBehaviour
         }
         
         spriteRenderer.sprite = backgrounds[indiceAtual];
+        
+        AjustarTamanhoBackground();
+        baseSize = spriteRenderer.size;
+        CentralizarBackground();
         
         tempoDecorrido = 0f;
         aguardandoTroca = false;

@@ -11,6 +11,10 @@ public class PlayerLife : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public GameObject telaGameOver;
     
+    // NOVO - Variáveis para o som
+    public AudioClip damageSound;
+    private AudioSource audioSource;
+    
     private bool estaInvulneravel = false;
     private Color corNormal;
     
@@ -21,6 +25,13 @@ public class PlayerLife : MonoBehaviour
         
         if (spriteRenderer != null)
             corNormal = spriteRenderer.color;
+        
+        // NOVO - Pega ou adiciona o AudioSource
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
     }
     
     void OnTriggerEnter2D(Collider2D colisao)
@@ -35,6 +46,12 @@ public class PlayerLife : MonoBehaviour
     {
         vidas--;
         AtualizarTextoVidas();
+        
+        // NOVO - Toca o som de dano
+        if (damageSound != null)
+        {
+            audioSource.PlayOneShot(damageSound);
+        }
         
         if (vidas <= 0)
         {
@@ -91,7 +108,6 @@ public class PlayerLife : MonoBehaviour
         }
     }
     
-    // Método adicionado para compatibilidade com BarraDeVida
     public int getVida()
     {
         return vidas;

@@ -4,10 +4,14 @@ public class PlayerJump : MonoBehaviour
 {
     public float initialJumpForce = 10f; 
     public float holdJumpForce = 5f;     
-    public float maxJumpTime = 0.3f;     
+    public float maxJumpTime = 0.3f;
+    
+    // NOVO - Variáveis para o som
+    public AudioClip jumpSound;
+    private AudioSource audioSource;
     
     private Rigidbody2D rb;
-    private Animator animator;  // NOVO
+    private Animator animator;
     private bool isGrounded;
     private bool isJumping;
     private float jumpTime;
@@ -15,7 +19,14 @@ public class PlayerJump : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();  // NOVO
+        animator = GetComponent<Animator>();
+        
+        // NOVO - Pega ou adiciona o AudioSource
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
     }
     
     void Update()
@@ -28,7 +39,13 @@ public class PlayerJump : MonoBehaviour
             jumpTime = 0f;
             isGrounded = false;
             
-            animator.SetBool("EstaPulando", true);  // NOVO - Ativa animação de pulo
+            animator.SetBool("EstaPulando", true);
+            
+            // NOVO - Toca o som de pulo
+            if (jumpSound != null)
+            {
+                audioSource.PlayOneShot(jumpSound);
+            }
         }
         
         // Mantém o pulo pressionado
@@ -57,7 +74,7 @@ public class PlayerJump : MonoBehaviour
         if (other.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
-            animator.SetBool("EstaPulando", false);  // NOVO - Desativa animação de pulo
+            animator.SetBool("EstaPulando", false);
         }
     }
 }
