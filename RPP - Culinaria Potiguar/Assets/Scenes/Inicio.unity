@@ -1128,6 +1128,7 @@ GameObject:
   - component: {fileID: 888405933}
   - component: {fileID: 888405932}
   - component: {fileID: 888405936}
+  - component: {fileID: 888405937}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1229,6 +1230,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 781537ec96099e1448c7cba7641835f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &888405937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888405931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc2a73464fcf3cf44ba84ca6c76b59ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &925225389
@@ -1393,10 +1406,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 888405936}
-        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
-        m_MethodName: LoadScenes
-        m_Mode: 5
+      - m_Target: {fileID: 888405937}
+        m_TargetAssemblyTypeName: Sair, Assembly-CSharp
+        m_MethodName: Saindo
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

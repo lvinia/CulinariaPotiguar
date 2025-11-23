@@ -31,32 +31,26 @@ public class BGController : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         
-        // Define o primeiro background
         if (backgrounds.Count > 0)
         {
             spriteRenderer.sprite = backgrounds[0];
         }
         
-        // Ajusta o tamanho inicial
         AjustarTamanhoBackground();
         baseSize = spriteRenderer.size;
         
-        // Centraliza o background
         CentralizarBackground();
         
-        // Procura o player
         if (playerSpeedController == null && usarVelocidadeDoPlayer)
         {
             playerSpeedController = FindObjectOfType<PlayerSpeedController>();
         }
         
-        // Procura o muro
         if (wallTransition == null)
         {
             wallTransition = FindObjectOfType<WallTransition>();
         }
         
-        // Inscreve no evento do muro
         if (wallTransition != null)
         {
             wallTransition.OnCobriuTela += TrocarBackground;

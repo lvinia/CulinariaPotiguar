@@ -8,6 +8,10 @@ public class FragmentManager : MonoBehaviour
     public Text fragmentText;
     private int fragmentCount = 0;
     
+    // NOVO - Variáveis para o som
+    public AudioClip collectSound;
+    private AudioSource audioSource;
+    
     private void Awake()
     {
         if (Instance == null)
@@ -15,6 +19,13 @@ public class FragmentManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
             Debug.Log("FragmentManager criado");
+            
+            // NOVO - Configura o AudioSource
+            audioSource = GetComponent<AudioSource>();
+            if (audioSource == null)
+            {
+                audioSource = gameObject.AddComponent<AudioSource>();
+            }
         }
         else
         {
@@ -59,6 +70,7 @@ public class FragmentManager : MonoBehaviour
         if (textObj != null)
         {
             fragmentText = textObj.GetComponent<Text>();
+            
             Debug.Log("FragmentText encontrado!");
         }
         else
@@ -71,6 +83,13 @@ public class FragmentManager : MonoBehaviour
     {
         fragmentCount++;
         Debug.Log("Fragmento coletado! Total: " + fragmentCount);
+        
+        // NOVO - Toca o som de coleta
+        if (collectSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(collectSound);
+        }
+        
         UpdateUI();
         
         if (fragmentCount >= 10)

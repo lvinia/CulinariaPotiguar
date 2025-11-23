@@ -293,7 +293,7 @@ MonoBehaviour:
     foi resgatada e o livro de receitas da av\xF3 est\xE1 completo novamente."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -619,8 +619,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9.81, y: -5.57}
-  m_SizeDelta: {x: 987.29, y: 563.93}
+  m_AnchoredPosition: {x: 0.001503, y: 0.0007515}
+  m_SizeDelta: {x: 800, y: 450.17}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1106073986
 MonoBehaviour:
@@ -642,7 +642,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 4812059084678797395, guid: 2d94742af1bdc284e8cc7055ea45c377, type: 3}
+  m_Sprite: {fileID: 8708928317580393208, guid: 09746eda677e9c043a4a0fda23ae403d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
